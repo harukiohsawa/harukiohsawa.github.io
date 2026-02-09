@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Haruki Osawa（大澤陽樹）</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #4a4a4a;
+            --accent: #2563eb;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--primary);
+            background-color: var(--bg);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: url('https://images.unsplash.com/photo-1488809776955-921c8d1a32a4?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1800');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            color: white;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation Index */
+        .index-nav {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            margin: -4rem auto 4rem;
+            position: relative;
+            z-index: 10;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .index-nav h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .index-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .index-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .index-links a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        section {
+            margin-bottom: 6rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin: 2.5rem 0 1.5rem;
+            color: var(--primary);
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h4 {
+            margin-top: 0;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .product-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .product-item:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        ul li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            color: var(--secondary);
+        }
+
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* Books Section */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .book-item {
+            text-align: center;
+        }
+
+        .book-item h4 {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Mission Section */
+        .mission {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .mission h2 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 0;
+        }
+
+        .mission h2::after {
+            display: none;
+        }
+
+        /* Keywords */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .keyword {
+            background: var(--bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            border: 1px solid var(--border);
+        }
+
+        /* Achievements */
+        .achievements {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 6rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                height: 50vh;
+                min-height: 400px;
+            }
+
+            .index-nav {
+                padding: 2rem 1.5rem;
+                margin: -3rem 1rem 3rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .main-content {
+                padding: 3rem 0;
+            }
+
+            section {
+                margin-bottom: 4rem;
+            }
+
+            .index-links {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+
+            .social-links a {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>About Haruki Osawa（大澤陽樹）</h1>
+            <p>大澤陽樹のプロフィール、ポートフォリオ、メディアなど。</p>
+        </div>
+    </div>
+
+    <!-- Index Navigation -->
+    <div class="container">
+        <nav class="index-nav">
+            <h2>Index</h2>
+            <div class="index-links">
+                <a href="#profile">Profile</a>
+                <a href="#career">🕰️経歴</a>
+                <a href="#books">📘著書</a>
+                <a href="#social">🤝フォローお願いします</a>
+                <a href="#contact">📧お仕事依頼はこちら</a>
+                <a href="#mission">Personal Mission</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#products">プロダクト・事業</a>
+                <a href="#consulting">コンサルティング実績例</a>
+                <a href="#research">研究</a>
+                <a href="#media">Media</a>
+                <a href="#favorite-books">Favorite books</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Profile Section -->
+        <section id="profile">
+            <h2>Profile</h2>
+            <p style="font-size: 1.25rem; font-weight: 500; color: var(--primary);">大澤 陽樹（Haruki Osawa）</p>
+
+            <div id="career">
+                <h3>🕰️経歴</h3>
+                <p>1985年2月生まれ。福島県いわき→兵庫県西宮→千葉県松戸→茨城県つくば→UK Manchester→千葉県柏の葉→東京都中央区。</p>
+                <p>江戸川学園取手高等学校→筑波大学生物学類（3-4年次 The University of Manchester, Life scienceで単位取得）→東京大学大学院 新領域創成科学研究科 修士修了。</p>
+                <p>リンクアンドモチベーションへ2009年に新卒入社。人事制度・組織文化・人材育成・人材採用に関するベンチャー向けのコンサルティングPJに従事。2015年に同社企画室室長へ就任。新規事業であるモチベーションクラウドの立ち上げや、インキュベーション（CVC）事業に従事。</p>
+                <p>2018年よりヴォーカーズ株式会社（現オープンワーク株式会社）へ兼務出向。2019年にオープンワーク株式会社へ転籍。同年に執行役員、取締役副社長へ就任。2020年4月より同社代表取締役社長。2022年12月に同社が東証グロース市場へ上場。</p>
+                <p><strong>その他：</strong>2023年注目の人物「起業家」ジャンルで10人に選出（AERA 年末年始特別号（12月26日））</p>
+                
+                <h4>keyword</h4>
+                <div class="keywords">
+                    <span class="keyword">ダイビング</span>
+                    <span class="keyword">ダックスフンド</span>
+                    <span class="keyword">トライアスロン</span>
+                    <span class="keyword">フルマラソン</span>
+                    <span class="keyword">中型二輪</span>
+                    <span class="keyword">旅（30ヶ国以上）</span>
+                    <span class="keyword">小説</span>
+                    <span class="keyword">漫画</span>
+                    <span class="keyword">ゲーム（Splatoon3, VALORANT, APEX, オーバーウォッチ）</span>
+                </div>
+            </div>
+
+            <div id="books">
+                <h3>📘著書</h3>
+                
+                <div class="card">
+                    <h4><a href="https://www.amazon.co.jp/dp/4492534628/" target="_blank">1300万件のクチコミからわかった超優良企業</a></h4>
+                    <p>（東洋経済新報社、2023）</p>
+                    <p>
+                        <a href="https://www.amazon.co.jp/dp/4492534628/" target="_blank">amazon</a>、
+                        <a href="https://books.rakuten.co.jp/rb/17278655/" target="_blank">楽天ブックス</a>、
+                        <a href="https://honto.jp/netstore/pd-book_31953842.html" target="_blank">honto</a>
+                    </p>
+                    
+                    <div class="achievements">
+                        <p><strong>※（2023/1/18時点）</strong></p>
+                        <ul>
+                            <li>Amazon 書籍総合ランキング2位</li>
+                            <li>企業経営カテゴリ1位ベストセラー</li>
+                            <li>ビジネス実用本カテゴリ1位ベストセラー</li>
+                            <li>株式投資・投資信託カテゴリ1位ベストセラー</li>
+                            <li>人事・労務管理カテゴリ1位ベストセラー</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4><a href="https://www.amazon.co.jp/dp/4502521116/" target="_blank">オルタナティブデータ入門</a></h4>
+                    <p>（中央経済社、2025）</p>
+                </div>
+
+                <div class="card">
+                    <h4><a href="https://newspicks.com/news/13844843/" target="_blank">大退職時代の歩き方</a></h4>
+                    <p>（Newspicksプロピッカー新書、2025）</p>
+                </div>
+            </div>
+
+            <div id="social">
+                <h3>🤝フォローお願いします</h3>
+                <div class="social-links">
+                    <a href="https://x.com/ohsawa_tw" target="_blank">X</a>
+                    <a href="https://note.com/haruki_ohsawa/" target="_blank">note</a>
+                    <a href="https://www.linkedin.com/in/haruki-ohsawa/" target="_blank">Linkedin</a>
+                    <a href="https://newspicks.com/user/130445/" target="_blank">NewsPicks</a>
+                    <a href="https://toyokeizai.net/list/author/%E5%A4%A7%E6%BE%A4+%E9%99%BD%E6%A8%B9" target="_blank">東洋経済連載</a>
+                </div>
+            </div>
+
+            <div id="contact">
+                <h3>📧お仕事依頼はこちら</h3>
+                <p>経歴・職歴の詳細や個人へのお仕事依頼は<a href="#">コチラ</a>まで</p>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section id="mission" class="mission">
+            <h2>意味のあふれる社会に</h2>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+
+            <div id="products">
+                <h3>プロダクト・事業</h3>
+
+                <div class="product-grid">
+                    <div class="product-item">
+                        <a href="https://www.vorkers.com/" target="_blank">
+                            <img src="https://s3.ap-northeast-1.amazonaws.com/wraptas-prod/harukiohsawa/1d225733-024e-8048-93d3-dad0638c0d25/132b72cb2a6a1ac690d96f05a206d776.png" alt="OpenWork">
+                        </a>
+                        <div class="product-content">
+                            <h4>1. OpenWork</h4>
+                            <p>日本最大級の社員クチコミをベースとした就職・転職情報プラットフォーム。2022年9月末時点でユーザー数は520万人、クチコミ数は1,400万件を突破。</p>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <a href="https://www.vorkers.com/recruiting" target="_blank">
+                            <img src="https://s3.ap-northeast-1.amazonaws.com/wraptas-prod/harukiohsawa/1d225733-024e-80da-bed0-cc4a13afe39d/fc44b872e892aaa392fe9e0cc70fb0bc.png" alt="OpenWorkリクルーティング">
+                        </a>
+                        <div class="product-content">
+                            <h4>2. OpenWorkリクルーティング</h4>
+                            <p>日本最大級の社員クチコミを活用した企業向け採用支援サービス。採用ブランディング、求人掲載、ダイレクトリクルーティング、組織改善をワンストップで実現。プロダクトオーナーとして3年間で1500社を超える企業が活用するサービスに。</p>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-content">
+                            <h4>3. <a href="https://career.openwork.jp/" target="_blank">OpenWorkキャリア</a></h4>
+                            <p>知られざる「個人」のキャリアにフォーカスしたコミュニティ「OpenWorkキャリア」。聞きにくいキャリアの悩みを情報交換し、匿名でも信頼できる情報が集まる場所を目指し、2025年3月に正式版ローンチ。</p>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <img src="https://s3.ap-northeast-1.amazonaws.com/wraptas-prod/harukiohsawa/1c825733-024e-8024-ba80-fe7303c7eff7/c6d32cf0ebd28a1238cea7fa85eeb588.png" alt="従業員クチコミレポート">
+                        <div class="product-content">
+                            <h4>4. 従業員クチコミレポート</h4>
+                            <p>「OpenWork」に掲載されたクチコミをAIで分析・スコア化し、企業の組織風土を可視化する「従業員クチコミレポート」の提供を2024年より開始。ローンチ年に、2つのHR関連の賞を受賞。個人としてはモチベーションクラウド以来、自身が携わったプロダクトで2つめのHR関連の賞を受賞。</p>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-content">
+                            <h4>5. <a href="https://www.openwork.co.jp/en/alternative_data" target="_blank">Alternative Data on Japanese companies</a>（<a href="https://www.openwork.co.jp/esg_data" target="_blank">日本語はこちら</a>）</h4>
+                            <p>日本最大級の社員クチコミを活用したオルタナティブデータサービス。査読付きの論文で、OpenWorkの社員クチコミデータと業績・株価との相関関係が証明されており、ヘッジファンドを中心にOpenWorkのデータ活用が進んでいる。</p>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-content">
+                            <h4>6. <a href="https://www.motivation-cloud.com/" target="_blank">モチベーションクラウド</a></h4>
+                            <p>エンゲージメント改善分野で4年連続業界No.1シェアを獲得している組織改善クラウド。2015年の2名での立ち上げから2019年まで従事。事業企画、予算獲得、PdM、営業、CS、マーケティング、リーガル、知財・特許、エンジニアチームの採用の立ち上げ・責任者を歴任。立ち上げ4年でMRR1.8億円を実現（当時BtoB SaaSプロダクト 国内Top10入り）グッドデザイン賞 ベスト100選出。特許2件取得。</p>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-content">
+                            <h4>7. <a href="https://www.lmi.ne.jp/about/enterprise/" target="_blank">ベンチャーインキュベーション（CVC）事業</a></h4>
+                            <p>コーポレートベンチャーキャピタル。ソーシング、投資後のサポートを担当。<a href="https://aktsk.jp/" target="_blank">株式会社アカツキ</a>、<a href="https://corp.raksul.com/" target="_blank">ラクスル株式会社</a>、<a href="https://www.leadingmark.jp/" target="_blank">株式会社リーディングマーク</a>を担当。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="consulting">
+                <h3>コンサルティング実績例</h3>
+                <p>※他案件はコチラを参照、ここでは実績の一部のみ紹介</p>
+
+                <div class="card">
+                    <h4>PJ Manager (2013-2019)</h4>
+                    
+                    <p><strong>1. 未上場・約100名・ITインターネット業界</strong></p>
+                    <ul>
+                        <li>Mission・Vision・Value構築・浸透、クリエイティブ制作ディレクション</li>
+                        <li>全社コミュニケーション施策企画・運用</li>
+                        <li>人事制度構築・運用、報酬制度設計・運用</li>
+                        <li>管理会計導入・運用</li>
+                        <li>組織編成設計、会議体・管理指標・管理帳票の構築</li>
+                        <li>管理職抜擢・育成</li>
+                        <li>採用戦略設計、採用チーム立上げ</li>
+                        <li>新卒採用立上げ</li>
+                    </ul>
+
+                    <p><strong>2. 未上場・約200名・ITインターネット業界（※現在、東証プライム上場）</strong></p>
+                    <ul>
+                        <li>Mission・Vision・Value構築・浸透、クリエイティブ制作ディレクション</li>
+                        <li>全社コミュニケーション施策企画・運用</li>
+                        <li>人事制度構築・運用、報酬制度設計・運用</li>
+                        <li>管理職抜擢・育成</li>
+                        <li>新卒採用立上げ</li>
+                    </ul>
+
+                    <p><strong>3. 未上場・約300名・ITインターネット業界（※現在、東証プライム上場）</strong></p>
+                    <ul>
+                        <li>Mission・Vision・Value構築・浸透、クリエイティブ制作ディレクション</li>
+                        <li>全社コミュニケーション施策企画・運用</li>
+                        <li>人事制度構築・運用、報酬制度設計・運用</li>
+                        <li>オンボーディングプログラム設計・運用</li>
+                        <li>採用戦略設計、採用チーム立上げ</li>
+                        <li>新卒採用立上げ</li>
+                        <li>新卒向けオンボーディングプログラム設計・運用</li>
+                    </ul>
+
+                    <p><strong>4. 未上場・約200名・BtoB SaaS業界（※2021年9月、未上場時価総額ランキングTop20入）</strong></p>
+                    <ul>
+                        <li>新卒採用立上げ</li>
+                        <li>新卒採用戦略設計</li>
+                        <li>新卒採用インターンシップ企画・運用</li>
+                    </ul>
+
+                    <p><strong>5. 未上場・1,000名以上・広告代理店</strong></p>
+                    <ul>
+                        <li>人事制度構築・運用、報酬制度設計・運用</li>
+                        <li>管理職向け研修企画・運用</li>
+                        <li>階層別研修企画・運用</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Consultant (2009-2012)</h4>
+
+                    <p><strong>1. 東証一部上場・10,000名以上・通信業界</strong></p>
+                    <ul>
+                        <li>次世代幹部抜擢・育成PJ企画・運用</li>
+                        <li>新卒向けオンボーディングプログラム企画・運用</li>
+                    </ul>
+
+                    <p><strong>2. 東証一部上場・1,000名以上・ITインターネット業界</strong></p>
+                    <ul>
+                        <li>キャリアデザイン施策企画・運用</li>
+                        <li>階層別研修企画・運用</li>
+                    </ul>
+
+                    <p><strong>3. 未上場・100名以上・サービス業</strong></p>
+                    <ul>
+                        <li>Mission・Vision・Value構築・浸透</li>
+                        <li>人事制度構築・運用、報酬制度設計・運用</li>
+                        <li>SV/店長抜擢・育成プログラム企画・運用</li>
+                        <li>採用戦略設計、採用チーム立上げ</li>
+                        <li>新卒採用立上げ</li>
+                    </ul>
+
+                    <p><strong>4. 東証一部上場・1,000名以上・サービス業</strong></p>
+                    <ul>
+                        <li>Mission・Vision・Value浸透プログラム企画・運用</li>
+                        <li>SV/店長育成プログラム企画・運用</li>
+                        <li>オンボーディングプログラム企画・運用</li>
+                    </ul>
+
+                    <p><strong>5. 東証一部上場・10,000名以上・SIer業界</strong></p>
+                    <ul>
+                        <li>キャリアデザイン施策企画・運用</li>
+                        <li>階層別研修企画・運用</li>
+                        <li>カフェテリア型研修企画・運用</li>
+                        <li>新卒オンボーディングプログラム企画・運用</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="research">
+                <h3>研究</h3>
+                <ul>
+                    <li><a href="https://www.jstage.jst.go.jp/article/jila/72/5/72_5_683/_article/-char/ja/" target="_blank">都市郊外の住居系用途地域における空閑地の発生・残存パターンと地形との関係</a>, 大澤 陽樹, 横張 真, 雨宮 護 / ランドスケープ研究 72巻(2009)5号</li>
+                    <li><a href="https://www.jstage.jst.go.jp/article/landscapeproc/2009/0/2009_0_52/_article/-char/ja" target="_blank">都市郊外の住居系用途地域における空閑地の発生・残存パターンと地形との関係</a>, 大澤 陽樹, 横張 真, 雨宮 護 / 平成21年日本造園学会全国大会 研究発表論文集</li>
+                    <li><a href="https://iss.ndl.go.jp/books/R000000004-I10539936-00" target="_blank">第44回東京都公園協会員受賞論文 郊外住宅地における空閑地の発生・残存パターンと地形との関係</a> / 東京都</li>
+                    <li><a href="https://www.k.u-tokyo.ac.jp/news/20080611yokohari-award.html" target="_blank">郊外住宅地における空閑地の発生・残存の実態と要因</a> / 日本都市計画学会 2008年 / 日本都市計画学会優秀ポスター賞</li>
+                    <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4937046" target="_blank">Headquarters Relocation and Employee Satisfaction: Evidence from the Crowdsourced Data</a> / The 2024 AsRES-GCREC & AREUEA International Real Estate Joint Conference 2024 / ニッセイ基礎研究所　佐久間誠氏、筑波大学大学院　システム情報工学研究群　松尾和史氏、筑波大学　システム情報系　教授　堤盛人氏、三幸エステート株式会社 今関 豊和氏、オープンワーク株式会社　代表取締役社長　大澤陽樹</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Media Section -->
+        <section id="media">
+            <h2>Media</h2>
+            <p>取材内容や、個人的に書いた文章です。</p>
+
+            <h3>メディア露出・掲載まとめ</h3>
+            <div class="card">
+                <h4><a href="https://note.com/haruki_ohsawa/n/nc0a698c9aba6" target="_blank">メディア露出まとめ（2024年5月更新）</a></h4>
+                <p>代表就任（2020/04）以降露出したメディアの一部となります。ありがたいことにメディアにて当社を取り上げて頂くことが増え、すべてを取り上げることが難しくなってきたため、代表的なもののみを紹介しています。</p>
+            </div>
+
+            <h3>個人記事一覧</h3>
+            <div class="card">
+                <h4><a href="https://note.com/haruki_ohsawa/" target="_blank">Haruki Ohsawa（大澤 陽樹）｜note</a></h4>
+                <p>『さあ、自由に生きよう。働きがいをすべての人へ』/転職・就職のためのWorking Data Platform「OpenWork」の開発・運用をしています。/オープンワーク株式会社 代表取締役社長</p>
+            </div>
+
+            <h3>講義・授業（一部）</h3>
+            <ul>
+                <li>慶應義塾大学 Keio-SPRING（JST博士後期課程学生研究支援プロジェクト） 基調講演</li>
+                <li>東京大学大学院 第11回創域会大会 「世界初の技術で『すべての組織を変える』挑戦」講演</li>
+                <li>筑波大学 キャリア支援センター主催 特別講演</li>
+                <li>私立江戸川学園取手高等学校 高校3年生向け キャリア教育授業担当</li>
+                <li>日本ショッピングセンター協会 全国大会 講演</li>
+                <li>公益財団法人 日本生産性本部 人事部長クラブ 講演</li>
+                <li>コクヨ様主催 働くのミライ会議vol.4</li>
+                <li>HR Transformation Summit2024 、最新研究から読み解く人的資本経営の実践</li>
+            </ul>
+        </section>
+
+        <!-- Favorite Books Section -->
+        <section id="favorite-books">
+            <h2>Favorite books</h2>
+            <p>個人的に印象に残っている書籍を紹介しています。</p>
+            <p>量が多いので<a href="#">コチラ</a>で随時更新していきます。</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Haruki Osawa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
