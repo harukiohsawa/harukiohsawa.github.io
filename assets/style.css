@@ -103,6 +103,32 @@ h1.name { font-size: 58px; font-weight: 800; letter-spacing: 0.02em; line-height
 }
 .sns a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
 
+/* upcoming events */
+.events { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.event-card {
+  background: var(--card); border: 1.5px solid var(--accent); border-radius: 16px;
+  padding: 24px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.event-card .e-date {
+  font-family: "Manrope", sans-serif; font-weight: 800; font-size: 15px;
+  color: var(--accent); letter-spacing: 0.02em;
+}
+.event-card .e-date .e-tag {
+  font-family: "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700;
+  background: var(--accent-soft); color: var(--accent);
+  border-radius: 999px; padding: 3px 12px; margin-left: 10px; vertical-align: 2px;
+}
+.event-card .e-name { font-size: 15.5px; font-weight: 700; line-height: 1.6; }
+.event-card .e-desc { font-size: 13px; color: var(--sub); flex: 1; }
+.event-card .e-apply {
+  display: inline-block; align-self: flex-start;
+  font-size: 13px; font-weight: 700; color: #fff; background: var(--accent);
+  border-radius: 999px; padding: 9px 22px; margin-top: 4px;
+}
+.event-card .e-apply:hover { filter: brightness(1.1); text-decoration: none; }
+#upcoming { margin-top: 64px; }
+
 /* media */
 .auto-badge {
   display: inline-flex; align-items: center; gap: 7px;
