@@ -176,6 +176,24 @@ a.m-title:hover { color: var(--accent); }
 .col-card .c-desc { font-size: 12.5px; color: var(--sub); margin-top: 4px; }
 
 .sub-head { font-size: 13px; font-weight: 800; color: var(--faint); letter-spacing: 0.08em; margin: 32px 0 12px; }
+details.fold {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  box-shadow: var(--shadow); padding: 0; margin-bottom: 14px; overflow: hidden;
+}
+details.fold summary {
+  cursor: pointer; list-style: none; padding: 16px 22px;
+  font-size: 14.5px; font-weight: 700; display: flex; align-items: center; gap: 10px;
+}
+details.fold summary::-webkit-details-marker { display: none; }
+details.fold summary::before { content: "▸"; color: var(--accent); transition: transform 0.15s; }
+details.fold[open] summary::before { transform: rotate(90deg); }
+details.fold summary .cnt { font-size: 12px; font-weight: 400; color: var(--faint); }
+details.fold .fold-body { padding: 0 22px 8px; }
+details.fold .fold-body ul { list-style: none; margin: 0; padding: 0; }
+details.fold .fold-body li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 14px; }
+details.fold .fold-body .t { font-weight: 700; }
+details.fold .fold-body .d { font-size: 12.5px; color: var(--sub); margin-top: 3px; line-height: 1.9; }
+@media (prefers-reduced-motion: reduce) { details.fold summary::before { transition: none; } }
 .sub-head:first-of-type { margin-top: 0; }
 ul.plain { list-style: none; margin: 0; padding: 4px 0; background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
 ul.plain li { padding: 13px 22px; border-bottom: 1px solid var(--line); font-size: 14px; }
