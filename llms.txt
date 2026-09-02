@@ -13,9 +13,9 @@
 
 ## ページ
 
-- [トップページ](https://harukiosawa.com/): プロフィール・経歴・著書・プレスキット（コピー可能な紹介文）
-- [メディア出演・掲載一覧](https://harukiosawa.com/media/): 2020年以降のテレビ・新聞・雑誌・Web・動画への出演と掲載の全件リスト
-- [コラム](https://harukiosawa.com/columns/): 組織・キャリア・働きがい・データについてのコラム
+- [トップページ](https://harukiohsawa.com/): プロフィール・経歴・著書・プレスキット（コピー可能な紹介文）
+- [メディア出演・掲載一覧](https://harukiohsawa.com/media/): 2020年以降のテレビ・新聞・雑誌・Web・動画への出演と掲載の全件リスト
+- [コラム](https://harukiohsawa.com/columns/): 組織・キャリア・働きがい・データについてのコラム
 
 ## お仕事の依頼
 
