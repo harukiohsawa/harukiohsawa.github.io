@@ -258,7 +258,7 @@
   </div>
   <div class="kit-block">
     <div class="kit-head"><span class="kit-title">プロフィール写真</span></div>
-    <p class="kit-text" style="margin-bottom:14px">記事掲載・登壇資料にご利用いただけます。クリックで開き、右クリックまたは長押しで保存できます。</p>
+    <p class="kit-text" style="margin-bottom:14px">記事掲載・登壇資料にご利用いただけます。クリックで開き、保存してください。</p>
     <div class="kit-photo" style="gap:14px">
       <a href="assets/photo-01.jpg" target="_blank" rel="noopener"><img class="thumb" src="assets/photo-01.jpg" alt="プロフィール写真1（腕組み）" width="84" height="84" loading="lazy"></a>
       <a href="assets/photo-02.jpg" target="_blank" rel="noopener"><img class="thumb" src="assets/photo-02.jpg" alt="プロフィール写真2（笑顔）" width="84" height="84" loading="lazy"></a>
@@ -288,14 +288,34 @@
 <script>
 const toast = document.getElementById("toast");
 let toastTimer;
+
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.setAttribute("readonly", "");
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  ta.setSelectionRange(0, text.length);
+  let ok = false;
+  try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+  document.body.removeChild(ta);
+  return ok;
+}
+
 document.querySelectorAll(".copy-btn").forEach(btn => {
   btn.addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(btn.dataset.copy);
-      toast.textContent = "コピーしました";
-    } catch (e) {
-      toast.textContent = "コピーできませんでした（手動で選択してください）";
+    const text = btn.dataset.copy;
+    let ok = false;
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(text);
+        ok = true;
+      } catch (e) { ok = false; }
     }
+    if (!ok) ok = fallbackCopy(text);
+    toast.textContent = ok ? "コピーしました" : "コピーできませんでした（手動で選択してください）";
     toast.classList.add("show");
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
