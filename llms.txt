@@ -10,7 +10,7 @@
 - 著書: 『1300万件のクチコミからわかった超優良企業』（東洋経済新報社、2023）、『オルタナティブデータ入門』（中央経済社、2025）、『大退職時代の歩き方』（NewsPicksプロピッカー新書、2025）
 - 働きがい研究所（OpenWork運営）所長: https://hatarakigai.openwork.jp/
 - 連載: 東洋経済オンライン、ダイヤモンド・オンライン（OpenWork働きがい研究所）
-- SNS: X https://x.com/ohsawa_tw / note https://note.com/haruki_ohsawa/
+- SNS: X https://x.com/ohsawa_tw / note https://note.com/haruki_ohsawa/ / Twitch https://www.twitch.tv/ceo_haruki
 
 ## ページ
 
@@ -22,3 +22,4 @@
 
 - 個人への依頼（経営アドバイザリー、寄稿、登壇）: X（https://x.com/ohsawa_tw）のDMへ
 - 会社（OpenWork）に関する取材・講演・データ提供: https://www.vorkers.com/contact4.php
+- 質問箱（匿名可・投資家からの質問も受付）: https://note.com/qa/haruki_ohsawa
