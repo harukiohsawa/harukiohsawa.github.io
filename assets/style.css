@@ -85,6 +85,7 @@ h2 { font-size: 30px; font-weight: 800; letter-spacing: 0.01em; margin: 0 0 8px;
 h1.name { font-size: 58px; font-weight: 800; letter-spacing: 0.02em; line-height: 1.2; margin: 0; }
 .romaji { font-size: 15px; letter-spacing: 0.34em; color: var(--faint); margin: 14px 0 0; }
 .title-line { margin: 26px 0 0; font-size: 15.5px; }
+.title-line.sub { margin-top: 5px; font-size: 13.5px; color: var(--sub); }
 .mission { margin: 10px 0 0; font-size: 14px; color: var(--sub); }
 .mission strong { color: var(--ink); font-weight: 700; }
 .portrait {
