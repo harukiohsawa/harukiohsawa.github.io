@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v=20261002">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -100,10 +100,7 @@
       </div>
     </div>
     <div>
-      <div class="portrait-flip">
-        <img class="portrait" src="assets/portrait.jpg" alt="大澤陽樹のプロフィール写真" width="200" height="200">
-        <img class="portrait-stamp" src="assets/stamp-smile.png" alt="" aria-hidden="true" width="200" height="200">
-      </div>
+      <img class="portrait" id="portrait" src="assets/portrait.jpg" alt="大澤陽樹のプロフィール写真" width="200" height="200">
     </div>
   </div>
 </header>
@@ -344,6 +341,32 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
     toastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
   });
 });
+</script>
+<script>
+// 顔写真が3秒ごとに似顔絵スタンプ（微笑み→驚き→考え込む）と切り替わる
+(function(){
+  var img=document.getElementById("portrait");
+  if(!img||window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var frames=[
+    {src:"assets/portrait.jpg",alt:"大澤陽樹のプロフィール写真"},
+    {src:"assets/stamp-smile.png",alt:"大澤陽樹の似顔絵（微笑み）",stamp:true},
+    {src:"assets/stamp-wow-lg.png",alt:"大澤陽樹の似顔絵（驚き）",stamp:true},
+    {src:"assets/stamp-think-lg.png",alt:"大澤陽樹の似顔絵（考え込む）",stamp:true}
+  ];
+  frames.forEach(function(f){ new Image().src=f.src; });
+  var i=0;
+  setInterval(function(){
+    if(document.hidden) return;
+    i=(i+1)%frames.length;
+    var f=frames[i];
+    img.classList.add("is-fading");
+    setTimeout(function(){
+      img.src=f.src; img.alt=f.alt;
+      img.classList.toggle("is-stamp",!!f.stamp);
+      img.classList.remove("is-fading");
+    },250);
+  },3000);
+})();
 </script>
 </body>
 </html>

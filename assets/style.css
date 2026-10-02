@@ -277,18 +277,9 @@ footer a { color: var(--faint); }
 }
 
 /* スタンプ（2026/10 追加）：顔写真がときどき似顔絵スタンプに切り替わる／見出し横の犬・文鳥 */
-.portrait-flip { position: relative; width: 200px; height: 200px; flex: 0 0 auto; }
-.portrait-stamp {
-  position: absolute; inset: 0; width: 200px; height: 200px; border-radius: 28px;
-  background: #EEF1FE; border: 1px solid var(--line); object-fit: contain; object-position: center bottom;
-  opacity: 0; animation: portrait-flip 14s ease-in-out 4s infinite; pointer-events: none;
-}
-.portrait-flip:hover .portrait-stamp { opacity: 1; animation-play-state: paused; transition: opacity .35s ease; }
-@keyframes portrait-flip {
-  0%, 70% { opacity: 0; }
-  75%, 93% { opacity: 1; }
-  98%, 100% { opacity: 0; }
-}
+.portrait { transition: opacity .25s ease; }
+.portrait.is-fading { opacity: 0; }
+.portrait.is-stamp { background: #EEF1FE; object-fit: contain; object-position: center bottom; }
 h2 .h2-stamp { height: 1.45em; width: auto; vertical-align: -0.3em; margin-left: 12px; transform-origin: 50% 100%; }
 h2 .h2-stamp.face { height: 1.55em; vertical-align: -0.36em; }
 h2:hover .h2-stamp { animation: stamp-hop .6s ease; }
@@ -297,6 +288,5 @@ h2:hover .h2-stamp { animation: stamp-hop .6s ease; }
   .h2-stamp { filter: drop-shadow(0 0 1px rgba(255,255,255,.75)) drop-shadow(0 0 3px rgba(255,255,255,.25)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .portrait-stamp { animation: none; }
   h2:hover .h2-stamp { animation: none; }
 }
