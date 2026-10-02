@@ -290,6 +290,7 @@ footer a { color: var(--faint); }
   98%, 100% { opacity: 0; }
 }
 h2 .h2-stamp { height: 1.45em; width: auto; vertical-align: -0.3em; margin-left: 12px; transform-origin: 50% 100%; }
+h2 .h2-stamp.face { height: 1.55em; vertical-align: -0.36em; }
 h2:hover .h2-stamp { animation: stamp-hop .6s ease; }
 @keyframes stamp-hop { 0%,100% { transform: translateY(0); } 40% { transform: translateY(-6px) rotate(-4deg); } }
 @media (prefers-color-scheme: dark) {
