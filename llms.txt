@@ -18,6 +18,7 @@
 - [トップページ](https://harukiohsawa.com/): プロフィール・経歴・著書・プレスキット（コピー可能な紹介文）
 - [メディア出演・掲載一覧](https://harukiohsawa.com/media/): 2020年以降のテレビ・新聞・雑誌・Web・動画への出演と掲載の全件リスト
 - [コラム](https://harukiohsawa.com/columns/): 組織・キャリア・働きがい・データについてのコラム
+  - [「働きがい」にこだわる理由——意味は配れない。あふれることはある。](https://harukiohsawa.com/columns/hatarakigai/): 2026-10-12。Personal Mission「意味のあふれる社会」の由来、労働の歴史、働きがいは与えられるものではないという考え（noteからの転載）
 
 ## お仕事の依頼・質問
 
