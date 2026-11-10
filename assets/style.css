@@ -280,6 +280,7 @@ footer a { color: var(--faint); }
 .portrait { transition: opacity .25s ease; }
 .portrait.is-fading { opacity: 0; }
 .portrait.is-stamp { background: #EEF1FE; object-fit: contain; object-position: center bottom; }
+.portrait.is-card { background: #0B0A0F; object-fit: contain; object-position: center; }
 h2 .h2-stamp { height: 1.45em; width: auto; vertical-align: -0.3em; margin-left: 12px; transform-origin: 50% 100%; }
 h2 .h2-stamp.face { height: 1.55em; vertical-align: -0.36em; }
 h2:hover .h2-stamp { animation: stamp-hop .6s ease; }

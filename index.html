@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=20261002">
+<link rel="stylesheet" href="assets/style.css?v=20261110">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -347,7 +347,7 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
 });
 </script>
 <script>
-// 顔写真が3秒ごとに似顔絵スタンプ（微笑み→驚き→考え込む）と切り替わる
+// 顔写真が3秒ごとに似顔絵スタンプ（微笑み→驚き→考え込む）→プレイヤーカード（全体表示）と切り替わる
 (function(){
   var img=document.getElementById("portrait");
   if(!img||window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -355,7 +355,8 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
     {src:"assets/portrait.jpg",alt:"大澤陽樹のプロフィール写真"},
     {src:"assets/stamp-smile.png",alt:"大澤陽樹の似顔絵（微笑み）",stamp:true},
     {src:"assets/stamp-wow-lg.png",alt:"大澤陽樹の似顔絵（驚き）",stamp:true},
-    {src:"assets/stamp-think-lg.png",alt:"大澤陽樹の似顔絵（考え込む）",stamp:true}
+    {src:"assets/stamp-think-lg.png",alt:"大澤陽樹の似顔絵（考え込む）",stamp:true},
+    {src:"assets/photo-playercard.jpg",alt:"大澤陽樹のプレイヤーカード風写真（配信者ハイパーゲーム大会 FINAL）",card:true}
   ];
   frames.forEach(function(f){ new Image().src=f.src; });
   var i=0;
@@ -367,6 +368,7 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
     setTimeout(function(){
       img.src=f.src; img.alt=f.alt;
       img.classList.toggle("is-stamp",!!f.stamp);
+      img.classList.toggle("is-card",!!f.card);
       img.classList.remove("is-fading");
     },250);
   },3000);
